@@ -46,10 +46,14 @@ void setup() {
      background(160, 160, 160);
       
       int d =0;
-      for(int i = 0; i<30;i++){
-        fill(250);
+      for(int i = 0; i<15;i++){
+        fill(250,226,0);
+ellipse(d,d,50,50);
+d+=15; 
+fill(0,0,0);
 ellipse(d,d,50,50);
 d+=15;
-}
+}d+=15;
+drawBeeFace(d,d);
 drawFlower(350, 100);
 }
