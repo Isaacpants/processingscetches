@@ -25,8 +25,14 @@ fill(255,0,0);
 rect(0,495 ,500 ,50 );
 fill(127,127,127);
 ellipse(x, y, 20, 20);
+
+
+if(intersectsPipes()== false){
+
 x1-=2;
-intersectsPipes();
+
+}
+
 y+=4;
 
 if(mousePressed==true){
@@ -45,7 +51,8 @@ y-=6 ;
  }
  boolean intersectsPipes() { 
      if (y < upperPipeHeight && x > x1 && x < (x1+50)){
-          return true; }
+          return true; 
+     }
      else if (y>lowerPipeHeight && x > x1 && x < (x1+50)) {
           return true; }
      else { return false; }
