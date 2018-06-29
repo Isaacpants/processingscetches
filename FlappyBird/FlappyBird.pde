@@ -2,20 +2,21 @@ int byv = 30;
 int g = 1;
 int x = 250;
 int y = 250;
-int x1 = 275;
+int x1 = 500;
 int y1 = 0;
 int ly = 495;
 int uy = 0;
 int pg = 75;
 int upperPipeHeight = (int) random(100, 400);
-int lowerPipeHeight = (int) random(100, 400);
-
+int score;
 void setup() {
   size(500, 500);
   background(0, 255, 44);
+  
 }
 
 void draw() { 
+  print(score);
   ly = uy + upperPipeHeight + pg;
   background(0, 255, 44);
   fill(178, 0, 255);
@@ -28,9 +29,11 @@ void draw() {
   fill(255, 0, 0);
   rect(0, 495, 500, 50 );
   fill(127, 0, 127);
+  
   ellipse(x, y, 20, 20);
   if (intersectsPipes()== false) {
     x1-=2;
+    score++;
   }
   if(intersectsPipes()==true){
   
@@ -54,8 +57,10 @@ void teleportPipes() {
 
 boolean intersectsPipes() { 
   if (y < upperPipeHeight && x > x1 && x < (x1+50)) {
+        println("uppper collided");
     return true;
-  } else if (y>500 && x > x1 && x < (x1+50)) {
+  } else if (y>ly && x > x1 && x < (x1+50)) {
+    println("lower collided");
     return true;
   } else { 
     return false;
