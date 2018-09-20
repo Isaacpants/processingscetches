@@ -1,6 +1,10 @@
 int cx = 0;
 int x = 900;
 int y = 900;
+int score=2;
+int speed=0;
+int fspeedx=0;
+int fspeedy=0;
 Car car5= new Car(40,150);
 Car car4= new Car(40,250);
 Car car= new Car(40,350);
@@ -39,17 +43,27 @@ void setup() {
   size(1000, 1000);
 
 
-
+PFont font = createFont("Ariel", 32);
+textFont(font);
   
-  car1();
+  
 }
 void draw() {
   
   if(y<=0){
+   
     background(0);
     fill(#FFFFFF);
-    rect(500,500,100,100);
-    text("Level 2" ,450,450);
+    rect(300,300,500,500);
+    fill(255,0,0);
+    text("Level "+ score ,550,550);
+    if(keyPressed){
+      score++;
+      speed++;
+    x=900;
+    y=900;
+    }
+    return;
   }
   if (intersects(car)||intersects(car1)||intersects(car2)||intersects(car3)||intersects(car4)||intersects(car5)) {
     x=900;
@@ -60,13 +74,15 @@ void draw() {
   
   background(0, 0, 0);
   fill(0, 255, 19);
+  x=x+fspeedx;
+  y=y-fspeedy;
   ellipse(x, y, 50, 50);
-  car.setX(car.getX()+8);
-  car1.setX(car1.getX()+6);
-  car2.setX(car2.getX()+10);
-  car3.setX(car3.getX()+4);
-  car4.setX(car4.getX()+10);
-  car5.setX(car5.getX()+2);
+  car.setX(car.getX()+7+speed);
+  car1.setX(car1.getX()+5+speed);
+  car2.setX(car2.getX()+9+speed);
+  car3.setX(car3.getX()+2+speed);
+  car4.setX(car4.getX()+9+speed);
+  car5.setX(car5.getX()+1+speed);
   car();
   car1();
   car2();
@@ -74,8 +90,8 @@ void draw() {
   car4();
   car5();
 
-  keyPressed();
-
+ // keyPressed();
+//keyReleased();
   fill(219, 0, 0);
 }
 
@@ -109,24 +125,28 @@ void car3() {
 }
 void keyPressed()
 {
-  if (key == CODED) {
+  
     if (keyCode == UP)
     {
-      y-=5;
+      fspeedy=+5;
     } else if (keyCode == DOWN)
     {
-      y+=5;
+      fspeedy=-5;
     } else if (keyCode == RIGHT)
     {
-      x+=5;
+      fspeedx=5;
     } else if (keyCode == LEFT)
     {
-      x-=5 ;
+      fspeedx=-5 ;
     }
-  }
+  
+}void keyReleased(){
+
+fspeedx=0;
+    fspeedy=0;
 }
 boolean intersects(Car car) {
-  if ((y > car.getY() && y < car.getY()+50) && (x > car.getX() && x < car.getX()+car.getSize()))
+  if ((y > car.getY() && y < car.getY()+50) && (x > car.getX() && x < car.getX()+100))
   {
     return true;
   } else 
@@ -135,6 +155,7 @@ boolean intersects(Car car) {
   }
 }
 void barrier() {
+  
   if (x>=1000) {
     x=999;
   }if (y>=1000) {
