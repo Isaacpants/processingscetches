@@ -57,7 +57,8 @@ void draw() {
     rect(300,300,500,500);
     fill(255,0,0);
     text("Level "+ score ,550,550);
-    if(keyPressed){
+    println(keyCode);
+    if(keyCode==32){
       score++;
       speed++;
     x=900;
@@ -128,16 +129,16 @@ void keyPressed()
   
     if (keyCode == UP)
     {
-      fspeedy=+5;
+      fspeedy=+7;
     } else if (keyCode == DOWN)
     {
-      fspeedy=-5;
+      fspeedy=-7;
     } else if (keyCode == RIGHT)
     {
-      fspeedx=5;
+      fspeedx=7;
     } else if (keyCode == LEFT)
     {
-      fspeedx=-5 ;
+      fspeedx=-7 ;
     }
   
 }void keyReleased(){
