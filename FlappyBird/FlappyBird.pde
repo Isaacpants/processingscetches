@@ -1,13 +1,14 @@
-int byv = 30;
+int byv = 0;
 int g = 1;
-int x = 250;
-int y = 250;
+int x = 25;
+int y = 5;
 int x1 = 500;
 int y1 = 0;
 int ly = 495;
 int uy = 0;
-int pg = 75;
-int upperPipeHeight = (int) random(100, 400);
+int pg = 150;
+
+int upperPipeHeight = (int) random(100, 300);
 int score;
 void setup() {
   size(500, 500);
@@ -16,7 +17,7 @@ void setup() {
 }
 
 void draw() { 
-  print(score);
+  println(score);
   ly = uy + upperPipeHeight + pg;
   background(0, 255, 44);
   fill(178, 0, 255);
@@ -33,7 +34,7 @@ void draw() {
   ellipse(x, y, 20, 20);
   if (intersectsPipes()== false) {
     x1-=2;
-    score++;
+    
   }
   if(intersectsPipes()==true){
   
@@ -41,17 +42,18 @@ void draw() {
   
   
   }
-  y+=4;
+  byv+=g;
+  y+=byv;
   if (mousePressed==true) {
-    y-=6 ;
+    byv=-6 ;
   }
 }
 
 void teleportPipes() {
   if (x1<=0) {
     x1 = 500;
-    upperPipeHeight = (int) random(100, 400);
-    
+    upperPipeHeight = (int) random(100, 300);
+    score++;
   }
 }
 
