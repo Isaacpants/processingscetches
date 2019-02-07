@@ -6,7 +6,7 @@ void setup() {
   size(2000, 1200);
 }
 void draw() {
-  background(3, 249, 255);
+  background(0, 0, 0);
   random(0, 100);
   text(score, 1000, 30);
   int x = mouseX;
@@ -20,7 +20,7 @@ void draw() {
     rect(x1+(i*200), y1, 50, 50);
   }
 
-  fill(255, 0, 0);
+  fill(255, 0, 213);
   ellipse(x, y, 50, 50);
   if (y1>=1200) {
     y1=0;
