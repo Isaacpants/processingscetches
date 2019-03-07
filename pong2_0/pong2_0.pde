@@ -16,9 +16,10 @@ void draw() {
   bx+=velx;
   by-=vely;
 
-  if (bx>mouseX&&bx<mouseX+150) {
-    velx=-10;
-  }
+  if (bx>mouseX&&bx<mouseX+150&&by>950&&by<950+5) {
+    vely=6;
+  } 
+ 
 
 
   if (bx>=1000) {
