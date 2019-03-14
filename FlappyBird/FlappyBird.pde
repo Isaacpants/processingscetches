@@ -29,7 +29,7 @@ void draw() {
 
   fill(255, 0, 0);
   rect(0, 495, 500, 50 );
-  fill(127, 0, 127);
+  fill(255, 1+50, 0);
   
   ellipse(x, y, 20, 20);
   if (intersectsPipes()== false) {
@@ -45,7 +45,7 @@ void draw() {
   byv+=g;
   y+=byv;
   if (mousePressed==true) {
-    byv=-6 ;
+    byv=-8 ;
   }
 }
 
